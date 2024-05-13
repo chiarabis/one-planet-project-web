@@ -24,7 +24,7 @@ export default function Header() {
     <>
         <header className='encode-sans flex flex-col text-sm p-8 mb-12 bg-gray-800'>
             <Link to='/'>
-                <h1 className='anta-regular text-3xl my-4 md:mt-0 text-center'>One Planet Project</h1>
+                <h1 className='anta-regular text-3xl my-4 md:mt-0 text-center glitch' data-text='One Planet Project'>One Planet Project</h1>
             </Link>
             
 
@@ -34,7 +34,7 @@ export default function Header() {
                     className='flex flex-row items-center my-4 md:my-0 hover:text-neon-cyan'>
                         <FontAwesomeIcon icon={faArrowLeft} className='mr-3'/>Back
                     </button>
-                    <div className='uppercase act-link text-red font-semibold my-6 md:mt-3 md:mb-0'>
+                    <div className='uppercase gradient-text underline-gradient font-semibold my-6 md:mt-3 md:mb-0'>
                         <Link to='/act-now'>act now for planet</Link>
                     </div> 
                 </div>

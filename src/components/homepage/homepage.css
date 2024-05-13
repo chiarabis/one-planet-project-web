@@ -6,7 +6,7 @@
   color: #00ffe230;
 }
 
-/*mission animation*/
+/*check mission circle animation*/
 .circle{
   width: 16px;
   height: 16px;
@@ -30,7 +30,7 @@
   overflow: hidden;
 }
 .general-typewriter{
-  animation: typewriting 2s steps(24) 1s 1 normal both, /*typewriting 5s steps(24) infinite*/
+  animation: typewriting 2s steps(24) 1s 1 normal both,
   blinkTextCursor .5s steps(24) infinite,
   fadeIn 1s forwards;
 }
@@ -51,12 +51,6 @@
   fadeIn 1s forwards;
   animation-delay: 0.5s;
 }
-.infinite-typewriter-3{
-  animation: typewriting 4s steps(24, end) infinite,
-  blinkTextCursor .5s steps(24) infinite,
-  fadeIn 1s forwards;
-  animation-delay: 0.75s;
-}
 @keyframes typewriting{
   0%{width: 0;}
   50%{width: 100%;}
@@ -68,17 +62,17 @@
 .fade-1 {
   opacity: 0;
   animation: fadeIn 2s forwards;
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 .fade-2{
   opacity: 0;
   animation: fadeIn 2s forwards;
-  animation-delay: 4s;
+  animation-delay: 3s;
 }
 .fade-3{
   opacity: 0;
   animation: fadeIn 2s forwards;
-  animation-delay: 5s;
+  animation-delay: 4s;
 }
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -87,17 +81,20 @@
 
 /*air quality title anim*/
 .glowing-text {
-    animation: text-flicker 3.1s linear infinite;
+  animation: text-flicker 3.1s linear infinite;
 }
 
 .pink-shadow{
-    text-shadow: 0 0 8px #111827, 0 0 8px #ff00c1;
+  text-shadow: 0 0 8px #111827, 0 0 8px #ff00c1;
 }
 .cyan-shadow{
-    text-shadow: 0 0 8px #111827, 0 0 8px #00ffe2;
+  text-shadow: 0 0 8px #111827, 0 0 8px #00ffe2;
 }
 .white-shadow{
   text-shadow: 0 0 8px #111827, 0 0 8px #fafafa;
+}
+.dark-shadow{
+  text-shadow: 0 0 8px #111827, 0 0 8px #374151;
 }
 
 /*menu title 'know more'*/
@@ -106,11 +103,12 @@
     white-space: nowrap;
     overflow: hidden;
 }
-.menu-anim{
+.flicker-anim{
     animation:
     typewriting 2s steps(24) 1s 1 normal both, /*typewriting 5s steps(24) infinite*/
-    fadeIn 1s forwards,
+    fadeIn 2s forwards,
     text-flicker 3s linear infinite;
+    animation-delay: 4s;
 }
 @keyframes text-flicker {
     0% {opacity: 0.1;}
@@ -156,12 +154,11 @@
 
 /*circle animation*/
 .circle-anim{
-    /*position: absolute;
     top: 50%;
-    left: 70%;*/
-    position: relative;
-    /*transform: translate(100%, -100%);*/
-    margin-right: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*position: relative;
+    transform: translate(100%, -100%);*/
     width: 200px;
     height: 200px;
     box-sizing: border-box;
@@ -245,17 +242,16 @@
     }
 }
 
-/*project link e act now link*/
-.project-link .act-link{
-    display: inline-block;
-    position: relative;
+/*project link*/
+.project-link{
+  display: inline-block;
+  position: relative;
 }
 .project-link:hover{
-    text-shadow: 0 0 8px #111827, 0 0 8px #fafafa;
+  text-shadow: 0 0 8px #111827, 0 0 8px #fafafa;
 }
-.act-link:hover{
-  text-shadow: 0 0 8px #111827, 0 0 8px #b91c1c;
-}
+
+
 
 /*pulse value*/
 .pulse-value{
@@ -274,8 +270,8 @@
   border-style: solid;
   border-image: 
     linear-gradient(
-      to bottom, 
-      #b91c1c, 
+      to bottom,
+      #00ffe2,
       #ff00c1
     ) 1 100%;
 }
@@ -293,12 +289,17 @@
   color: #18181b;
 }
 
-/*console div*/
-.console-title{
+/*climate change homepage box glow*/
+.box-glow{
+  box-shadow: 0px 0px 6px 3px #fafafa, inset 0px 0px 6px 3px #fafafa;
+  border: 1px solid #fafafa;
+  border-radius: 2px;
+}
+/*climate change title effect*/
+.highlight-title{
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 2.5rem;
-    margin-top: 20px; 
+    text-align: center;
     background: linear-gradient(90deg, #18181b, #fafafa, #18181b); /*71717a*/
     letter-spacing: 5px;
     -webkit-background-clip: text;
@@ -318,12 +319,10 @@
     }
 }
 
-/*radar*/
+/*act now radar*/
 .radar{
     width: 240px;
     animation: radar-animation 4s linear infinite;
-    /*animation: pulse-radar 1.5s ease-in-out infinite;
-    animation: rotation 3s linear infinite;*/
 }
 @keyframes radar-animation{
   0% {
@@ -339,17 +338,6 @@
     transform: rotate(360deg) scale(1);
   }
 }
-/*@keyframes pulse-radar {
-    0% {
-      transform: scale(0.95);
-    }
-    50% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(0.95);
-    }
-}*/
 
 .button-act{
   width: fit-content;

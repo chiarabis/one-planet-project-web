@@ -16,12 +16,12 @@ export default function Searchbar() {
 
   return (
     <>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center items-center">
 
           <div className='mt-3 text-start encode-sans relative'>
             <label className='text-sm text-white'>Monitoring pollutant levels:</label>
 
-            <div className='w-fit mt-2 bg-zinc-50/50 px-2 py-1 rounded-sm text-start'>
+            <div className='w-max mt-2 bg-zinc-50/50 px-2 py-1 rounded-sm text-start'> {/**w-fit */}
               <input 
                 type='text' 
                 value={search} 
@@ -34,9 +34,8 @@ export default function Searchbar() {
                   className='text-dark cursor-pointer hover:text-neon-pink'/>
             </div>
           </div>
-            
+
         </div>
-        
     </>
   )
 }

@@ -21,7 +21,7 @@ export default function Searchbar() {
           <div className='mt-3 text-start encode-sans relative'>
             <label className='text-sm text-white'>Monitoring pollutant levels:</label>
 
-            <div className='w-max mt-2 bg-zinc-50/50 px-2 py-1 rounded-sm text-start'> {/**w-fit */}
+            <div className='w-max mt-2 bg-zinc-50/50 px-2 py-1 rounded-sm text-start'>
               <input 
                 type='text' 
                 value={search} 

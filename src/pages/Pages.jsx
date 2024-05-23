@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Homepage from '../components/homepage/Homepage';
-import LocationSearched from '../components/topic/LocationSearched';
+import LocationSearched from '../components/topic/air quality location/LocationSearched';
 import GlobalTemperature from '../components/topic/GlobalTemperature';
 import GreenhouseGases from '../components/topic/GreenhouseGases';
 import IceMelting from '../components/topic/IceMelting';

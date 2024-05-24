@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { BleepsProvider } from '@arwes/react';
 
+
 const bleepsSettings = {
   master: {
     volume: 0.4
@@ -28,14 +29,15 @@ function App() {
     }, 3000);
   }, []);
 
+  
+
   return (
     <>
     <BrowserRouter>
       <BleepsProvider {...bleepsSettings}>
       
-
         {loading ? <Loader/> : <Pages/>}
-
+       
       </BleepsProvider>
     </BrowserRouter>
     </>

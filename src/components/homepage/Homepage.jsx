@@ -42,7 +42,7 @@ export default function Homepage() {
     
       <div className='bg-cover h-screen w-screen overflow-y-scroll overflow-x-hidden fixed flex flex-col items-center' style={{backgroundImage: `url(${backgroundImage})`}}>
         
-        <div className='text-center my-20'>
+        <div className='text-center my-20 mx-5'>
           <h1 className='anta-regular text-5xl md:text-7xl glitch' data-text='One Planet Project'>One Planet Project</h1>
         </div>
         
@@ -86,7 +86,7 @@ export default function Homepage() {
                 
                   <div className='flex flex-col items-center encode-sans py-3 px-4 lg:px-8'>
                     <FontAwesomeIcon icon={faTriangleExclamation} beatFade className='h-10 m-3 text-red'/>
-                    <h3 className='highlight-title mt-5 text-2xl lg:text-4xl'>climate change</h3>
+                    <h3 className='vanishing-effect uppercase font-extrabold mt-5 text-2xl lg:text-4xl'>climate change</h3>
                   </div>
                   <div className='flex flex-row justify-between w-full encode-sans px-8 py-3 text-xs'>
                     <span className='glitch-datetime' data-content={formattedTime}>{formattedTime}</span>

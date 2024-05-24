@@ -74,7 +74,7 @@ export const fetchForest = async() => {
 function xmlToJson(xml) {
    var obj = {}
    if (xml.nodeType == 1) { 
-      // Se l'elemento ha attributi, li aggiunge all'oggetto
+      //se l'elemento ha attributi, li aggiunge all'oggetto
       if (xml.attributes.length > 0) {
           obj["@attributes"] = {};
           for (var j = 0; j < xml.attributes.length; j++) {
@@ -90,7 +90,7 @@ function xmlToJson(xml) {
       for (var i = 0; i < xml.childNodes.length; i++) {
           var item = xml.childNodes.item(i);
           var nodeName = item.nodeName;
-          // Se il nodo figlio è già stato incontrato, lo aggiunge a un array
+          //se il nodo figlio è già stato incontrato, lo aggiunge a un array
           if (typeof(obj[nodeName]) == "undefined") {
               obj[nodeName] = xmlToJson(item);
           } else {
@@ -108,15 +108,13 @@ function xmlToJson(xml) {
 
 export const fetchData = async() => {
    try{
-      const [carbonDioxideData, methaneData, nitrousOxideData, temperatureData, iceData, oceanData, forestData] = await Promise.all([
-         fetchCarbonDioxide(),
-         fetchMethane(),
-         fetchNitrousOxide(),
-         fetchTemperature(),
-         fetchIce(),
-         fetchOcean(),
-         fetchForest()
-      ])
+      const carbonDioxideData = await fetchCarbonDioxide();
+      const methaneData = await fetchMethane();
+      const nitrousOxideData = await fetchNitrousOxide();
+      const temperatureData = await fetchTemperature();
+      const iceData = await fetchIce();
+      const oceanData = await fetchOcean();
+      const forestData = await fetchForest();
       
       const recentData = {
          carbonDioxide: calculateRecentValue(carbonDioxideData),
@@ -131,6 +129,7 @@ export const fetchData = async() => {
       return { recentData, allData: {carbonDioxideData, methaneData, nitrousOxideData, temperatureData, iceData, oceanData, forestData} };
    } catch(error){
       console.log('Error', error)
+      return { recentData: null, allData: null };
    }
 }
 
@@ -139,7 +138,7 @@ const calculateRecentValue = (data) => {
       const years = Object.keys(data);
       const latestYear = years[years.length - 1];
       return data[latestYear]
-   } else {
+   } else{
       if (Array.isArray(data)) {
          if (data.length > 0) {
             const latestData = data[data.length - 1];

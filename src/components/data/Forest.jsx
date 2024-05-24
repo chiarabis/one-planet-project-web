@@ -13,7 +13,7 @@ export default function Forest() {
             try{
                 const {recentData} = await fetchData();
 
-                const forestData = recentData.forest; // = array con oggetti
+                const forestData = recentData.forest;
                 const filteredData = forestData.filter(item => item['wb:value'] && item['wb:value']['#text']);
 
                 const years = filteredData.map(item => item['wb:date']['#text']);

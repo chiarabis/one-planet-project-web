@@ -198,29 +198,25 @@ export default function CarbonDioxide() {
 
     return (
     <>
-    {/*{recentCo2 && (
-        <div>{recentCo2.month} - {recentCo2.year}, {recentCo2.trend} ppm</div>
-    )}*/}
-
-    <div className='h-[400px] row-span-2 order-1 md:order-none'>
-        <canvas id="co2Chart" className='h-fit'></canvas>
-    </div>
-    
-    <div className='flex flex-col items-center justify-center text-sm encode-sans mt-4 md:mt-0'>Last recent value:
-    {recentCo2 ? (
-        <div className='h-[100px] flex flex-col justify-center items-center text-xl anta-regular blink'>
-            <span>{getMonthName(recentCo2.month)}, {recentCo2.year}:</span>
-            <span>{recentCo2.trend} ppm</span>
-        </div>
-        ) : (
-        <div className='my-4'>
-            <Box sx={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}>
-            <CircularProgress sx={{color: 'rgb(250,250,250, .6)'}} size={26}/>
-            </Box>
-            <p className='text-xs text-center text-white/60'>No data available now.<br/>Please wait for loading...</p>
-        </div>
-    )}
-    </div>
+      <div className='h-[400px] row-span-2 order-1 md:order-none'>
+          <canvas id="co2Chart" className='h-fit'></canvas>
+      </div>
+      
+      <div className='flex flex-col items-center justify-center text-sm encode-sans mt-4 md:mt-0'>Last recent value:
+      {recentCo2 ? (
+          <div className='h-[100px] flex flex-col justify-center items-center text-xl anta-regular blink'>
+              <span>{getMonthName(recentCo2.month)}, {recentCo2.year}:</span>
+              <span>{recentCo2.trend} ppm</span>
+          </div>
+          ) : (
+          <div className='my-4'>
+              <Box sx={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}>
+              <CircularProgress sx={{color: 'rgb(250,250,250, .6)'}} size={26}/>
+              </Box>
+              <p className='text-xs text-center text-white/60'>No data available now.<br/>Please wait for loading...</p>
+          </div>
+      )}
+      </div>
     
     </>
   )

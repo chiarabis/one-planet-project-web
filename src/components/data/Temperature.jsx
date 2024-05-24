@@ -126,7 +126,7 @@ export default function Temperature() {
                   color: 'rgba(250, 250, 250, 0.2)'
                 },
                 ticks: {
-                  color: 'rgba(250, 250, 250)'
+                  color: 'rgba(250, 250, 250, 1)'
                 }
               },
               y: {
@@ -147,7 +147,7 @@ export default function Temperature() {
                   color: 'rgba(250, 250, 250, 0.2)'
                 },
                 ticks: {
-                  color: 'rgba(250, 250, 250)'
+                  color: 'rgba(250, 250, 250, 1)'
                 }
               }
             }
@@ -159,13 +159,13 @@ export default function Temperature() {
     return (
     <>
       <div className="flex flex-col">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center md:mb-4"> {/** md:mb-4 mb-0 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center md:mb-4">
           <p className='encode-sans text-sm text-justify'>This chart shows global temperature anomalies from year 1880 to present.
           For each year an average of the global temperature was calculated starting from the temperatures recorded for each month.
           The temperature is measured in Celsius and datasets are processed by GISTEMP (GISS Surface Temperature Analysis),
           at NASA Goddard Institute for Space Studies.
           </p>
-          <div className='flex flex-col items-center justify-center my-12'>Last recent value: {/**md:mb-4 md:mt-0 my-8 */}
+          <div className='flex flex-col items-center justify-center my-12'>Last recent value:
             {recentTemperature ? (
               <div className='h-[100px] flex flex-col justify-center items-center text-xl anta-regular blink'>
                 <span>{recentTemperature.month}, {recentTemperature.year}:</span>

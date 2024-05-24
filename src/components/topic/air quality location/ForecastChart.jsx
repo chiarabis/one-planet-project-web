@@ -336,7 +336,7 @@ export default function ForecastChart( {ozoneForecast, pm10Forecast, pm25Forecas
         <div className='flex flex-col mt-10 md:mt-0 lg:ml-12 w-full'>      
             <h4 className='encode-sans text-base'>Daily forecast</h4>
 
-            <div className='grid grid-cols-1 xl:grid-cols-2 gap-12'> {/** 2xl:grid-cols-3 */}
+            <div className='grid grid-cols-1 xl:grid-cols-2 gap-12'>
 
                 <div className='mt-6'>
                     <p className='text-sm'>• Ozone - O<sub>3</sub></p>

@@ -18,41 +18,46 @@ import AirTables from './AirTables';
 
 export default function LocationSearched() {
     const apiKey = import.meta.env.VITE_SOME_KEY;
-    const [locationData, setLocationData] = useState();
+    const [locationData, setLocationData] = useState(null);
     const [optionsLocation, setOptionsLocation] = useState([])
     const { search } = useParams();
     const [loading, setLoading] = useState(true);
     const [datetime, setDatetime] = useState(null);
+    
 
 
     useEffect(() => {
         const getSearch = async() => {
+            setLoading(true);
+            setOptionsLocation([]);
+            setLocationData(null);
+            setDatetime(null);
+
             try {
                 if(search !== ''){
                     const response = await axios.get(`https://api.waqi.info/search/?token=${apiKey}&keyword=${search}`)
                     setOptionsLocation(response.data.data)
-                } else if (search == ''){
-                    console.log('No locaton found')
-                    setOptionsLocation([])
-                }
-                else {
-                    console.log('Input search is empty. Please insert a location.')
-                    alert('Input search is empty. Please insert a location.')
-                    setOptionsLocation([])
+                } else {
+                    console.log('Location not valid.')
+                    setOptionsLocation([]);
                 }
             } catch (error) {
               console.error('Error fetching data:', error);
               setOptionsLocation([])
+            }finally {
+                setLoading(false);
             }
         };
         getSearch();
     }, [search, apiKey])
 
     const handleClick = async(uid) => {
+        setLoading(true);
+
         try {
             const response = await axios.get(`https://api.waqi.info/feed/@${uid}/?token=${apiKey}`);
             setLocationData(response.data);
-            
+
             if (response.data?.data?.time?.s) {
                 const currentDate = response.data.data.time.s;
                 const [date, time] = currentDate.split(' ');
@@ -61,15 +66,11 @@ export default function LocationSearched() {
             }
         } catch (error) {
             console.error('Something goes wrong:', error);
+            setLocationData(null)
+        } finally {
+            setLoading(false);
         }
     };
-
-    //loading caricamento dati
-    useEffect(() => {
-        setTimeout(() => {
-        setLoading(false);
-        }, 3000);
-    }, []);
 
     //popper
     const [anchorEl, setAnchorEl] = useState(null);
@@ -216,13 +217,13 @@ export default function LocationSearched() {
         <div className='flex flex-col'>
             <Header/>
 
-            <div className='encode-sans p-8'>
+            <div className='encode-sans py-0 px-8'>
                 
                 <h2 className='mb-10'>Results for: {search}</h2>
 
                 {locationData && locationData.data ? (
-                <div className='flex flex-col lg:flex-row my-6 w-full'>
-                    <div className='flex flex-col mb-5 w-fit'>
+                <div className='flex flex-col lg:flex-row my-6'>
+                    <div className='flex flex-col mb-5'>
                         <div className='mb-5 w-fit'>
                             {datetime && datetime.date && datetime.time ? (
                                 <p className='text-white/60 text-xs mb-2'>Update {datetime.date} {datetime.time}</p>
@@ -236,7 +237,7 @@ export default function LocationSearched() {
                         </div>
       
                         {aqiData && (
-                            <div className='w-fit'>
+                            <div>
                                 AQI:
                                 <span className={`p-1 ml-1 cursor-default rounded-sm ${bgColorClass}`}
                                 onMouseEnter={handleMouseEnter}
@@ -260,10 +261,11 @@ export default function LocationSearched() {
                                 ]}
                                 transition
                                 onClose={handleClose}
+                                className='w-[240px] md:w-[400px] lg:w-[600px]'
                                 >
                                 {({ TransitionProps }) => (
                                     <Fade {...TransitionProps} timeout={350}>
-                                        <TableContainer component={Paper} className='w-[250px] h-fit lg:w-[600px]'>
+                                        <TableContainer component={Paper}>
                                             <div className='p-3 text-xs encode-sans'>
                                                 
                                                 <span className={`font-semibold ${textColorClass}`}>{message}: {' '}</span>
@@ -285,12 +287,12 @@ export default function LocationSearched() {
                                                             }}
                                                             className={row.className}>{row.range}</StyledTableCell>
                                                         <TableCell 
-                                                        sx={{
-                                                            fontSize: '0.75rem',
-                                                            fontFamily: 'Encode Sans Expanded, sans-serif', 
-                                                            color: 'rgb(17, 24, 39)',
-                                                            border: 'none',
-                                                            borderBottom: index === rows.length - 1 ? 'none' : '1px solid rgba(17, 24, 39, 0.3)'}}>{row.quality}</TableCell>
+                                                            sx={{
+                                                                fontSize: '0.75rem',
+                                                                fontFamily: 'Encode Sans Expanded, sans-serif', 
+                                                                color: 'rgb(17, 24, 39)',
+                                                                border: 'none',
+                                                                borderBottom: index === rows.length - 1 ? 'none' : '1px solid rgba(17, 24, 39, 0.3)'}}>{row.quality}</TableCell>
                                                     </TableRow>
                                                 ))}
                                                 </TableBody>
@@ -320,7 +322,7 @@ export default function LocationSearched() {
                     {loading ? (
                         <Box 
                             sx={{ 
-                                display: 'flex', 
+                                display: 'flex',
                                 justifyContent: {
                                     xs: 'center',
                                     sm: 'start'
@@ -359,43 +361,3 @@ export default function LocationSearched() {
         </>
     )
 }
-
-{/*<div className='hidden md:block'>
-                    <TableContainer component={Paper} sx={{maxWidth: 'fit-content'}}>
-                        <Table>
-
-                            <TableHead className='bg-neon-cyan'>
-                                <TableRow>
-                                    {params.map(param => (
-                                        <TableCell 
-                                        sx={{
-                                            textTransform: 'uppercase', 
-                                            fontFamily: 'Encode Sans Expanded, sans-serif', 
-                                            fontWeight: '600', 
-                                            textAlign: 'center',
-                                            color: 'rgb(17, 24, 39)',
-                                            borderBottom: '1px solid rgb(17, 24, 39, 0.3)'
-                                        }}
-                                        key={param}>{param}</TableCell>
-                                    ))}
-                                </TableRow>
-                            </TableHead>
-                            
-                            <TableBody className='bg-zinc-50'> 
-                                <TableRow>
-                                    {values.map(value => (
-                                        <TableCell 
-                                        sx={{
-                                            textTransform: 'uppercase', 
-                                            fontFamily: 'Encode Sans Expanded, sans-serif', 
-                                            textAlign: 'center',
-                                            color: 'rgb(17, 24, 39)'
-                                        }}
-                                        key={value}>{value}</TableCell>
-                                    ))}
-                                </TableRow>
-                            </TableBody>
-
-                        </Table>
-                    </TableContainer>
-                    </div>*/}

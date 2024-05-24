@@ -334,20 +334,20 @@ export default function ForecastChart( {ozoneForecast, pm10Forecast, pm25Forecas
     return (
     <> 
         <div className='flex flex-col mt-10 md:mt-0 lg:ml-12 w-full'>      
-            <h4 className='encode-sans text-base'>• Daily forecast</h4>
+            <h4 className='encode-sans text-base'>Daily forecast</h4>
 
-            <div className='grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12'>
+            <div className='grid grid-cols-1 xl:grid-cols-2 gap-12'> {/** 2xl:grid-cols-3 */}
 
                 <div className='mt-6'>
-                    <p className='text-sm'>Ozone - O<sub>3</sub></p>
+                    <p className='text-sm'>• Ozone - O<sub>3</sub></p>
                     <Bar data={chartOzoneData} options={optionsOzone}/>
                 </div>
                 <div className='my-6'>
-                    <p className='text-sm'>PM<sub>10</sub></p>
+                    <p className='text-sm'>• PM<sub>10</sub></p>
                     <Bar data={chartPm10Data} options={optionsPm10}/>
                 </div>
                 <div className='my-6'>
-                    <p className='text-sm'>PM<sub>2,5</sub></p>
+                    <p className='text-sm'>• PM<sub>2,5</sub></p>
                     <Bar data={chartPm25Data} options={optionsPm25}/>
                 </div>
                 

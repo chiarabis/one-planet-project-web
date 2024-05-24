@@ -23,4 +23,4 @@ I implemented the web app with different libraries.
 - Axios: for fetching data from APIs
 
 ### Link to project
-> soon on Vercel!
+››› soon on Vercel!

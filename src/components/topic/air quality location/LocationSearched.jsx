@@ -64,13 +64,6 @@ export default function LocationSearched() {
         }
     };
 
-    //loading caricamento dati
-    useEffect(() => {
-        setTimeout(() => {
-        setLoading(false);
-        }, 3000);
-    }, []);
-
     //popper
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
@@ -359,43 +352,3 @@ export default function LocationSearched() {
         </>
     )
 }
-
-{/*<div className='hidden md:block'>
-                    <TableContainer component={Paper} sx={{maxWidth: 'fit-content'}}>
-                        <Table>
-
-                            <TableHead className='bg-neon-cyan'>
-                                <TableRow>
-                                    {params.map(param => (
-                                        <TableCell 
-                                        sx={{
-                                            textTransform: 'uppercase', 
-                                            fontFamily: 'Encode Sans Expanded, sans-serif', 
-                                            fontWeight: '600', 
-                                            textAlign: 'center',
-                                            color: 'rgb(17, 24, 39)',
-                                            borderBottom: '1px solid rgb(17, 24, 39, 0.3)'
-                                        }}
-                                        key={param}>{param}</TableCell>
-                                    ))}
-                                </TableRow>
-                            </TableHead>
-                            
-                            <TableBody className='bg-zinc-50'> 
-                                <TableRow>
-                                    {values.map(value => (
-                                        <TableCell 
-                                        sx={{
-                                            textTransform: 'uppercase', 
-                                            fontFamily: 'Encode Sans Expanded, sans-serif', 
-                                            textAlign: 'center',
-                                            color: 'rgb(17, 24, 39)'
-                                        }}
-                                        key={value}>{value}</TableCell>
-                                    ))}
-                                </TableRow>
-                            </TableBody>
-
-                        </Table>
-                    </TableContainer>
-                    </div>*/}

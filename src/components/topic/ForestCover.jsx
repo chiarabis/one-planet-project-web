@@ -91,7 +91,7 @@ export default function ForestCover() {
                 {showPopover && (
                   <div
                     style={{
-                        position: 'absolute',
+                        position: 'fixed',
                         top: popoverPosition.y + 10,
                         left: popoverPosition.x + 10,
                         backgroundColor: 'rgb(250, 250, 250, .8)',
@@ -123,7 +123,7 @@ export default function ForestCover() {
                 {showPopover && (
                   <div
                     style={{
-                        position: 'absolute',
+                        position: 'fixed',
                         top: popoverPosition.y + 10,
                         left: popoverPosition.x + 10,
                         backgroundColor: 'rgb(250, 250, 250, .8)',

@@ -21,11 +21,12 @@ export default function ActNow() {
         };
     }, []);
     
+    
     const handleMouseMove = (event) => {
         const { clientX, clientY } = event;
         setPopoverPosition({ x: clientX, y: clientY });
     };
-    const handleMouseEnter = (event) => {
+    const handleMouseEnter = () => {
         const { clientX, clientY } = event;
         setPopoverPosition({ x: clientX, y: clientY });
         setShowPopover(true);
@@ -52,7 +53,7 @@ export default function ActNow() {
                 
                 <div className="my-8 w-full">
 
-                    <div className="encode-sans flex flex-col md:flex-row h-auto"> {/**grid grid-cols-1 md:grid-cols-8 gap-x-8 */}
+                    <div className="encode-sans flex flex-col md:flex-row h-auto">
                         <div className="w-full">
                             <div className="border-2 border-white/60 rounded-sm h-full text-justify p-6">
                                 <p className="mb-2">• What is climate change?</p><br/>
@@ -110,11 +111,11 @@ export default function ActNow() {
 
                 <div className="encode-sans grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 my-8 w-full">
                     <div>
-                        <a href='https://science.nasa.gov/climate-change/faq/what-is-the-greenhouse-effect/'>
+                        <a href='https://science.nasa.gov/climate-change/faq/what-is-the-greenhouse-effect/' target='_blank'>
                             <img 
                             src='/greenhouse-effect.gif' 
                             alt='greenhouse-effect' 
-                            className='rounded-md my-2 cursor-pointer relative'
+                            className='rounded-md my-2 cursor-pointer'
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                             onMouseMove={handleMouseMove}
@@ -123,7 +124,7 @@ export default function ActNow() {
                             {showPopover && (
                                 <div
                                 style={{
-                                    position: 'absolute',
+                                    position: 'fixed',
                                     top: popoverPosition.y + 10,
                                     left: popoverPosition.x + 10,
                                     backgroundColor: 'rgb(250, 250, 250, .8)',
@@ -244,7 +245,7 @@ export default function ActNow() {
 
                 <div className="my-8 w-full">
                     <div className="encode-sans flex flex-col items-center">
-                        <p className="p-4 md:p-12 text-center glow">How can we reduce our impact and what can we ask to our government?</p>
+                        <p className="p-4 md:p-12 text-center glow-gradient">How can we reduce our impact and what can we ask to our government?</p>
                         <ul className="grid grid-cols-2 md:grid-cols-4 gap-8 text-justify my-8">
                             <li className="flex flex-col white-shadow rounded-sm gradient-bg p-2">
                                 <FontAwesomeIcon icon={faLeaf} className="m-2"/>

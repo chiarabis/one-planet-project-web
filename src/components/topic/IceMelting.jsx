@@ -1,6 +1,6 @@
 import Header from "../header/Header";
 import Ice from "../data/Ice";
-import './gallery-img.css';
+import './topic.css';
 import './../homepage/homepage.css';
 import { useState } from "react";
 
@@ -74,7 +74,7 @@ export default function IceMelting() {
                   {showPopover && (
                     <div
                     style={{
-                        position: 'absolute',
+                        position: 'fixed',
                         top: popoverPosition.y + 10,
                         left: popoverPosition.x + 10,
                         backgroundColor: 'rgba(250, 250, 250, .8)',

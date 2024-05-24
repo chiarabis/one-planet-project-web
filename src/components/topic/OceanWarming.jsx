@@ -89,7 +89,7 @@ export default function OceanWarming() {
                     <div className="my-8">
                         <h2 className="anta-regular pb-4 glowing-text white-shadow">Global ocean temperature anomalies</h2>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 md:mt-6"> {/**items-start  */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 md:mt-6">
                             <p className="encode-sans text-sm text-justify row-span-1">The CO<sub>2</sub> we produce is absorbed and 
                             dissolved into the ocean, making it more acidic. The ocean is also suffering from deoxygenation, 
                             due to contamination and global warming, making it less habitable for marine organism. The ocean 

@@ -7,11 +7,16 @@ import { useState } from 'react';
 export default function Searchbar() {
   const bleeps = useBleeps();
 
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const navigate = useNavigate()
     
   const handleSearchClick = () => {
-      navigate('/location-searched/' + search)
+      if (search.trim() === '') {
+          alert('Input search is empty or not valid. Please insert a valid input.')
+      } else {
+          navigate('/location-searched/' + search);
+      }
+      setSearch('')
   }
 
   return (

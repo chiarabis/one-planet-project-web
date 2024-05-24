@@ -56,7 +56,6 @@ export default function DataBlock() {
         <div className='gradient-lines my-5'>
             <h3 className='anta-regular mb-3 text-center fade-2'>Greenhouse gases</h3>
             <div className='flex flex-col'>
-                {/*1 box*/}
                 <div style={{
                     width: '100%',
                     height: 'auto',
@@ -70,18 +69,18 @@ export default function DataBlock() {
                 }}>
 
                 <div className='py-5 px-8 fade-2'>
-                    <div className='anta-regular w-min'>
+                    <div className='anta-regular'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter-1 bar uppercase'>co<sub>2</sub> level</h3></div>
                         {recentCo2 && recentCo2.trend ? (
                             <span className='pulse-value'>{recentCo2.trend} ppm</span>
-                        ) : 'Loading...'
-                        }
+                        ) : (
+                            <span className='pulse-value'>Loading...</span>
+                        )}
                     </div>
                     <Link to='/greenhouse-gases' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>
                 </div>
 
-                {/*2 box*/}
                 <div style={{
                     width: '100%',
                     height: 'auto',
@@ -99,15 +98,15 @@ export default function DataBlock() {
                     <div className='anta-regular'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter bar uppercase'>ch<sub>4</sub> level</h3></div>
                         {recentCh4 && recentCh4.trend ? (
-                                <span className='pulse-value'>{recentCh4.trend} ppb</span>
-                            ) : 'Loading...'
-                        }
+                            <span className='pulse-value'>{recentCh4.trend} ppb</span>
+                        ) : (
+                            <span className='pulse-value'>Loading...</span>
+                        )}
                     </div>
                     <Link to='/greenhouse-gases' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>
                 </div>
 
-                {/*3 box*/}
                 <div style={{
                     width: '100%',
                     height: 'auto',
@@ -124,9 +123,10 @@ export default function DataBlock() {
                     <div className='anta-regular'>
                         <div className='w-fit'><h3 className='text-white infinite-typewriter-2 bar uppercase'>no level</h3></div>
                         {recentNo && recentNo.trend ? (
-                                <span className='pulse-value'>{recentNo.trend} ppb</span>
-                            ) : 'Loading...'
-                        }
+                            <span className='pulse-value'>{recentNo.trend} ppb</span>
+                        ) : (
+                            <span className='pulse-value'>Loading...</span>
+                        )}
                     </div>
                     <Link to='/greenhouse-gases' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>
@@ -152,9 +152,10 @@ export default function DataBlock() {
                 <div className='anta-regular w-min'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter bar uppercase'>Global temperature</h3></div>
                     {recentTemperature && recentTemperature.station ? (
-                            <span className='pulse-value'>{recentTemperature.station} °C</span>
-                        ) : 'Loading...'
-                    }
+                        <span className='pulse-value'>{recentTemperature.station} °C</span>
+                    ) : (
+                        <span className='pulse-value'>Loading...</span>
+                    )}
                 </div>
                 <Link to='/global-temperature' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>
@@ -174,9 +175,10 @@ export default function DataBlock() {
                 <div className='anta-regular'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter-2 bar uppercase'>Sea ice extent</h3></div>
                     {recentIce && recentIce.value ? (
-                            <span className='pulse-value'>{recentIce.value} million km<sup>2</sup></span>
-                        ) : 'Loading...'
-                    }
+                        <span className='pulse-value'>{recentIce.value} million km<sup>2</sup></span>
+                    ) : (
+                        <span className='pulse-value'>Loading...</span>
+                    )}
                 </div>
                 <Link to='/ice-melting' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>
@@ -197,8 +199,9 @@ export default function DataBlock() {
                         <div className='w-fit'><h3 className='text-white infinite-typewriter-1 bar uppercase'>Ocean warming</h3></div>
                         {recentOcean && recentOcean ? (
                             <span className='pulse-value'>{recentOcean} °C</span>
-                        ) : 'Loading...'
-                        }
+                        ) : (
+                            <span className='pulse-value'>Loading...</span>
+                        )}
                     </div>
                     <Link to='/ocean-warming' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>
@@ -218,9 +221,10 @@ export default function DataBlock() {
                 <div className='anta-regular'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter bar uppercase'>Forest cover</h3></div>
                     {recentForest ? (
-                            <span className='pulse-value'>{formatForestValue(recentForest[2]['wb:value']['#text'])} million km<sup>2</sup></span>
-                        ) : 'Loading...'
-                    }
+                        <span className='pulse-value'>{formatForestValue(recentForest[2]['wb:value']['#text'])} million km<sup>2</sup></span>
+                    ) : (
+                        <span className='pulse-value'>Loading...</span>
+                    )}
                 </div>
                 <Link to='/forest-cover' onClick={() => bleeps.click?.play()} className='float-right data-button anta-regular'>More</Link>
                 </div>

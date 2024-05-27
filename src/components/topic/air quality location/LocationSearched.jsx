@@ -72,6 +72,13 @@ export default function LocationSearched() {
         }
     };
 
+    //loading caricamento dati
+    /*useEffect(() => {
+        setTimeout(() => {
+        setLoading(false);
+        }, 3000);
+    }, []);*/
+
     //popper
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);
@@ -175,7 +182,7 @@ export default function LocationSearched() {
         } else if (aqi >= 151 && aqi <= 200) {
           return {bgColorClass: 'bg-red', textColorClass: 'text-red', message: 'Unhealthy'};
         } else if (aqi >= 201 && aqi <= 300) {
-          return {bgColorClassolorClass: 'bg-rose-800', textColorClass: 'text-rose-800', message: 'Very unhealthy'} ;
+          return {bgColorClass: 'bg-rose-800', textColorClass: 'text-rose-800', message: 'Very unhealthy'} ;
         } else if (aqi >= 301 && aqi <= 500) {
           return {bgColorClass: 'bg-fuchsia-950', textColorClass: 'text-fuchsia-950', message: 'Hazardous'};
         } else {

@@ -44,7 +44,7 @@ export default function Ocean() {
                 data: {
                 labels: years,
                 datasets: [{
-                    label: 'Global Ocean Temperature Anomalies - Average in January-February',
+                    label: 'Global Ocean Temperature Anomalies',
                     data: values,
                     backgroundColor: 'rgba(220, 38, 38, 0.7)',
                     borderColor: 'rgba(220, 38, 38, 1)',

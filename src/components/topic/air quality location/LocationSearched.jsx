@@ -72,13 +72,6 @@ export default function LocationSearched() {
         }
     };
 
-    //loading caricamento dati
-    /*useEffect(() => {
-        setTimeout(() => {
-        setLoading(false);
-        }, 3000);
-    }, []);*/
-
     //popper
     const [anchorEl, setAnchorEl] = useState(null);
     const [open, setOpen] = useState(false);

@@ -9,10 +9,11 @@ export default function Loader() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
-        className='loader'
         >
+          <div className='loader'>
             <span>Loading mission...</span>
             <div className="spinner"></div>
+          </div>
         </motion.div>
     </>
   )

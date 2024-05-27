@@ -23,4 +23,4 @@ I implemented the web app with different libraries.
 - Axios: for fetching data from APIs
 
 ### Link to project
-››› soon on Vercel!
+[One planet project](https://one-planet-project-web.vercel.app/) - _Powered by Vercel_ ▲

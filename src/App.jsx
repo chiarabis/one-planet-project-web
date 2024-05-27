@@ -45,9 +45,9 @@ function App() {
         <meta property="og:title" content="One Planet Project" />
         <meta property="og:description" content="One Planet Project - a web app for climate change" />
         <meta property="og:image" content="/image-og.png" />
-        <meta property="og:url" content="" />
+        <meta property="og:url" content="https://one-planet-project-web.vercel.app/" />
         <meta property="og:type" content="website"/>
-        <link rel="canonical" href=""/>
+        <link rel="canonical" href="https://one-planet-project-web.vercel.app/"/>
         <link rel="icon" type="image/png" href="/favicon/website-favicon.ico"/>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />

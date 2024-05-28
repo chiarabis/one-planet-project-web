@@ -9,10 +9,10 @@ Website project to be informed about global warming and climate change, monitori
 
 ---
 
-### Info sources
+### 📑 Info sources
 I have used different public api to access data. Most of them don't require key or authentication (except one: the air quality API). Images are from Pixabay. All the informations are from Nasa website - Climate Change section, articles from Our World in Data, WWF website and Copernicus program website.
 
-### Libraries and tools
+### 🛠️ Libraries and tools
 I implemented the web app with different libraries.
 - Arwes: a sci-fi/futuristic UI libraries
 - MUI: a wonderful library of React components
@@ -22,5 +22,5 @@ I implemented the web app with different libraries.
 - React Router: for page routing
 - Axios: for fetching data from APIs
 
-### Link to project
+### 🌐 Link to project
 [One planet project](https://one-planet-project-web.vercel.app/) - _Powered by Vercel_ ▲

@@ -1,5 +1,5 @@
 # One Planet Project
-Website project to be informed about global warming and climate change, monitoring vital signs of our planet and promote good actions.
+A webapp, with a sci-fi/futuristic design, to monitor vital signs of our planet and educate and raise awareness among the users about global warming and climate change.
 
 ![Screenshot (51)](https://github.com/chiarabis/one-planet-project-web/assets/124071052/6020e4a0-2c0e-4966-9cbb-13ffc7b83a90)
 ![Screenshot (53)](https://github.com/chiarabis/one-planet-project-web/assets/124071052/088aaf83-0f8d-443d-b9fa-c2438e5cbe19)

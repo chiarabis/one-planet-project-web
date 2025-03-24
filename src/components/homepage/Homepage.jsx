@@ -114,8 +114,6 @@ export default function Homepage() {
 
           </div>
         )}
-        
-        <div className='absolute bottom-0 m-4 opacity-50 encode-sans text-xs md:self-end'>⌜Created by Chiara Bissolo⌟</div>
       </div>
     </motion.div>
     </>

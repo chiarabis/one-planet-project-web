@@ -18,13 +18,11 @@ export default function Ocean() {
                 setOceanData(oceanData);
 
                 const years = Object.keys(oceanData);
-                const values = Object.values(oceanData);
-                
+                const values = Object.values(oceanData).map(v => v.anomaly);
                 const lastYear = years[years.length - 1];
-                const lastValue = recentData.ocean;
+                const lastValue = recentData.ocean.anomaly;
 
                 setRecentOcean({year: lastYear, value: lastValue});
-
                 buildChart(years, values);
             } catch(error){
                 console.log('Error during fetching ocean data:', error)

@@ -1,8 +1,7 @@
-import { createFrameOctagonClip } from '@arwes/frames';
-import { FrameSVGNefrex } from '@arwes/react-frames';
+import { createFrameOctagonSettings } from '@arwes/frames';
+import { FrameNefrex } from '@arwes/react-frames';
 import { Link } from 'react-router-dom'
 import { useBleeps } from '@arwes/react'
-//import '../homepage.css'
 import AirQualityBox from './AirQualityBox';
 import { useState, useEffect } from 'react';
 import { fetchData } from "../../client API/fetchData";
@@ -39,13 +38,16 @@ export default function DataBlock() {
             setRecentForest(recentData.forest);
             
           } catch (error) {
-            console.log(error);
+            console.error(error)
           }
         };
         fetchRecentData();
     }, []);
     
-
+    /*if (!recentCo2 || !recentCh4 || !recentNo || !recentTemperature || !recentIce || !recentOcean || !recentForest) {
+        return <p>Caricamento dati...</p>;
+    }*/
+    
 
 
     return (
@@ -59,7 +61,7 @@ export default function DataBlock() {
                 <div style={{
                     width: '100%',
                     height: 'auto',
-                    clipPath: createFrameOctagonClip({
+                    clipPath: createFrameOctagonSettings({
                         leftTop: false,
                         rightTop: true,
                         rightBottom: false,
@@ -84,7 +86,7 @@ export default function DataBlock() {
                 <div style={{
                     width: '100%',
                     height: 'auto',
-                    clipPath: createFrameOctagonClip({
+                    clipPath: createFrameOctagonSettings({
                         leftTop: false,
                         rightTop: true,
                         rightBottom: false,
@@ -110,7 +112,7 @@ export default function DataBlock() {
                 <div style={{
                     width: '100%',
                     height: 'auto',
-                    clipPath: createFrameOctagonClip({
+                    clipPath: createFrameOctagonSettings({
                         leftTop: false,
                         rightTop: true,
                         rightBottom: false,
@@ -145,8 +147,9 @@ export default function DataBlock() {
                 width: '100%',
                 height: 'auto',
                 zIndex: 1,
-                }} className='svg-cyber'>
-                <FrameSVGNefrex/>
+                }}>
+                <FrameNefrex
+                style={{'--arwes-frames-bg-color': '#00ffe230', '--arwes-frames-line-color': '#00ffe2'}}/>
 
                 <div className='py-5 px-8 fade-2'>
                 <div className='anta-regular w-min'>
@@ -168,8 +171,9 @@ export default function DataBlock() {
                 width: '100%',
                 height: 'auto',
                 zIndex: 1,
-                }} className='svg-cyber'>
-                <FrameSVGNefrex/>
+                }}>
+                <FrameNefrex
+                style={{'--arwes-frames-bg-color': '#00ffe230', '--arwes-frames-line-color': '#00ffe2'}}/>
 
                 <div className='py-5 px-8 fade-2'>
                 <div className='anta-regular'>
@@ -191,14 +195,15 @@ export default function DataBlock() {
                 width: '100%',
                 height: 'auto',
                 zIndex: 1,
-                }} className='svg-cyber'>
-                <FrameSVGNefrex/>
+                }}>
+                <FrameNefrex
+                style={{'--arwes-frames-bg-color': '#00ffe230', '--arwes-frames-line-color': '#00ffe2'}}/>
 
                 <div className='py-5 px-8 fade-2'>
                     <div className='anta-regular'>
                         <div className='w-fit'><h3 className='text-white infinite-typewriter-1 bar uppercase'>Ocean warming</h3></div>
-                        {recentOcean && recentOcean ? (
-                            <span className='pulse-value'>{recentOcean} °C</span>
+                        {recentOcean && recentOcean.anomaly ? (
+                            <span className='pulse-value'>{recentOcean.anomaly} °C</span>
                         ) : (
                             <span className='pulse-value'>Loading...</span>
                         )}
@@ -214,13 +219,19 @@ export default function DataBlock() {
                 width: '100%',
                 height: 'auto',
                 zIndex: 1,
-                }} className='svg-cyber'>
-                <FrameSVGNefrex/>
+                }}>
+                <FrameNefrex
+                style={{'--arwes-frames-bg-color': '#00ffe230', '--arwes-frames-line-color': '#00ffe2'}}/>
 
                 <div className='py-5 px-8 fade-2'>
                 <div className='anta-regular'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter bar uppercase'>Forest cover</h3></div>
-                    {recentForest ? (
+                    {/*{recentForest ? (
+                        <span className='pulse-value'>{formatForestValue(recentForest[2]['wb:value']['#text'])} million km<sup>2</sup></span>
+                    ) : (
+                        <span className='pulse-value'>Loading...</span>
+                    )}*/}
+                    {recentForest && recentForest[2] && recentForest[2]['wb:value'] && recentForest[2]['wb:value']['#text'] ? (
                         <span className='pulse-value'>{formatForestValue(recentForest[2]['wb:value']['#text'])} million km<sup>2</sup></span>
                     ) : (
                         <span className='pulse-value'>Loading...</span>

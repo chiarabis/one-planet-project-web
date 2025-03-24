@@ -1,7 +1,7 @@
 import './homepage.css';
 import backgroundImage from '/background.jpg';
 import { motion } from 'framer-motion';
-import { FrameSVGKranox } from '@arwes/react-frames';
+import { FrameKranox } from '@arwes/react-frames';
 import { useBleeps } from '@arwes/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
@@ -18,8 +18,8 @@ export default function Homepage() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const handleShow = () => {
-    setShowComponentsHome(true)
-  }
+    setShowComponentsHome(true);
+  };
   
   useEffect(() => {
       const interval = setInterval(() => {
@@ -50,8 +50,11 @@ export default function Homepage() {
           <div style={{
               position: 'relative',
               zIndex: 1,
-              }} className='svg-cyber mt-0 md:mt-10 lg:mt-20 w-[300px] h-auto md:w-[360px] md:h-[180px]'>
-              <FrameSVGKranox/>
+              }} className='mt-0 md:mt-10 lg:mt-20 w-[300px] h-auto md:w-[360px] md:h-[180px]'>
+              <FrameKranox 
+                style={{'--arwes-frames-bg-color': '#00ffe230',
+                '--arwes-frames-line-color': '#00ffe2'
+              }}/>
 
               <div className='py-5 px-8 pl-20 w-fit h-full text-start flex flex-col justify-center encode-sans text-white'>
                 <div className='w-[120px]'>
@@ -111,7 +114,8 @@ export default function Homepage() {
 
           </div>
         )}
-            
+        
+        <div className='absolute bottom-0 m-4 opacity-50 encode-sans text-xs md:self-end'>⌜Created by Chiara Bissolo⌟</div>
       </div>
     </motion.div>
     </>

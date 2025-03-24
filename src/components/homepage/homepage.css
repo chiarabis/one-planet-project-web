@@ -1,10 +1,10 @@
-.svg-cyber svg path[data-name=line]{
+/*.svg-cyber svg path[data-name=line]{
   fill: none;
   color: #00ffe2;
 }
 .svg-cyber svg path[data-name=bg]{
   color: #00ffe230;
-}
+}*/
 
 /*check mission red circle animation*/
 .circle{

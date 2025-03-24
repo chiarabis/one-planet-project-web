@@ -44,10 +44,6 @@ export default function DataBlock() {
         fetchRecentData();
     }, []);
     
-    /*if (!recentCo2 || !recentCh4 || !recentNo || !recentTemperature || !recentIce || !recentOcean || !recentForest) {
-        return <p>Caricamento dati...</p>;
-    }*/
-    
 
 
     return (
@@ -226,11 +222,6 @@ export default function DataBlock() {
                 <div className='py-5 px-8 fade-2'>
                 <div className='anta-regular'>
                     <div className='w-fit'><h3 className='text-white infinite-typewriter bar uppercase'>Forest cover</h3></div>
-                    {/*{recentForest ? (
-                        <span className='pulse-value'>{formatForestValue(recentForest[2]['wb:value']['#text'])} million km<sup>2</sup></span>
-                    ) : (
-                        <span className='pulse-value'>Loading...</span>
-                    )}*/}
                     {recentForest && recentForest[2] && recentForest[2]['wb:value'] && recentForest[2]['wb:value']['#text'] ? (
                         <span className='pulse-value'>{formatForestValue(recentForest[2]['wb:value']['#text'])} million km<sup>2</sup></span>
                     ) : (
